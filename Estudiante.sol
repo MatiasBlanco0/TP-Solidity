@@ -6,8 +6,8 @@ contract Estudiante{
     string private _apellido;
     string private _curso;
     address private _docente;
-    mapping (string => uint) _notas_materias;
-    string[] _materias;
+    mapping (string => uint) private _notas_materias;
+    string[] private _materias;
 
     constructor(string memory nombre_, string memory apellido_, string memory curso_){
         _nombre = nombre_;
@@ -21,7 +21,7 @@ contract Estudiante{
     }
 
     function nombre_completo() public view returns(string memory){
-        return string.concat(_nombre, _apellido);
+        return string.concat(_nombre," ", _apellido);
     }
 
     function curso() public view returns(string memory){
