@@ -28,7 +28,7 @@ contract Estudiante{
 
     /* Funcion que al ser llamada duelve el nombre y el apellido como un mismo string, con un espacio en el medio */
     function nombre_completo() public view returns(string memory){
-        return string.concat(_nombre," ", _apellido);
+        return string(bytes.concat(bytes(_nombre)," ", bytes(_apellido)));
     }
 
     /* Funcion que al ser llamada devuelve el curso como string */
@@ -73,8 +73,8 @@ contract Estudiante{
     _materias[i] es el nombre de la materia segun i
     _materias[_materias[i]] es la nota de la materia
     al final se divide el "promedio" por la cantidad de materias que hay y se devuelve el resultado*/
-    function promedio() public view returns(uint8 promedio_){
-        promedio_ = 0;
+    function promedio() public view returns(uint){
+        uint promedio_ = 0;
         for(uint i = 0; i < _materias.length;i++){
             promedio_ += _notas_materias[_materias[i]];
         }
