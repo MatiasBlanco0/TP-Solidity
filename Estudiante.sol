@@ -6,7 +6,7 @@ contract Estudiante{
     string private _apellido;
     string private _curso;
     address private _docente;
-    mapping (string => uint) private _notas_materias;
+    mapping (string => uint8) private _notas_materias;
     //Array de strings que guarda todas las materias seteadas
     string[] private _materias;
 
@@ -37,10 +37,10 @@ contract Estudiante{
     }
 
     /* Funcion que solo el docente que creo al Estudiante puede llamar.
-    Parametros: nota (uint) y materia (string)
+    Parametros: nota (uint8) y materia (string)
     Si el valor de la nota es mayor a 100 o menor a 1, o la funcion es llamada por alguien que no es el docente, se para la funcion
     Se pushea la materia a un array de materias y se actualiza el valor de la nota con la key materia*/
-    function set_nota_materia(uint nota_, string memory materia_) public{
+    function set_nota_materia(uint8 nota_, string memory materia_) public{
         require(msg.sender == _docente, "Solo el docente del alumno puede modificar las notas");
         require(nota_ <= 100, "La nota tiene que ser un numero entero del 1 al 100");
         require(nota_ >= 1, "La nota tiene que ser un numero entero del 1 al 100");
@@ -73,7 +73,7 @@ contract Estudiante{
     _materias[i] es el nombre de la materia segun i
     _materias[_materias[i]] es la nota de la materia
     al final se divide el "promedio" por la cantidad de materias que hay y se devuelve el resultado*/
-    function promedio() public view returns(uint promedio_){
+    function promedio() public view returns(uint8 promedio_){
         promedio_ = 0;
         for(uint i = 0; i < _materias.length;i++){
             promedio_ += _notas_materias[_materias[i]];
