@@ -6,6 +6,7 @@ contract Estudiante{
     string private _apellido;
     string private _curso;
     address private _docente;
+    //La nota se guarda en un uint8 porque tiene valores del 0 al 255 y la nota es del 1 al 100
     mapping (string => uint8) private _notas_materias;
     //Array de strings que guarda todas las materias seteadas
     string[] private _materias;
