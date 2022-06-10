@@ -46,7 +46,15 @@ contract Estudiante{
         require(nota_ <= 100, "La nota tiene que ser un numero entero del 1 al 100");
         require(nota_ >= 1, "La nota tiene que ser un numero entero del 1 al 100");
 
-        _materias.push(materia_);
+        bool existe = false;
+        for(uint8 i = 0; i < _materias.length; i++){
+            if (keccak256(abi.encodePacked(_materias[i])) == keccak256(abi.encodePacked(materia_))){
+                existe = true;
+            }
+        }
+        if(!existe){
+            _materias.push(materia_);
+        }
         _notas_materias[materia_] = nota_;
     }
 
@@ -76,7 +84,7 @@ contract Estudiante{
     al final se divide el "promedio" por la cantidad de materias que hay y se devuelve el resultado*/
     function promedio() public view returns(uint){
         uint promedio_ = 0;
-        for(uint i = 0; i < _materias.length;i++){
+        for(uint8 i = 0; i < _materias.length;i++){
             promedio_ += _notas_materias[_materias[i]];
         }
         return promedio_ / _materias.length;
