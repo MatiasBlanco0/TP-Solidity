@@ -67,7 +67,7 @@ contract Estudiante{
         if(!existe){
             _materias.push(materia_);
         }
-        _notas_materias[bimestre][materia_] = nota_;
+        _notas_materias[bimestre_][materia_] = nota_;
 
         emit SetNota(msg.sender, materia_, bimestre_, nota_);
     }
