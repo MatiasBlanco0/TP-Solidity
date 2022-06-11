@@ -97,7 +97,7 @@ contract Estudiante{
     _materias[i] es el nombre de la materia segun i
     _materias[bimestre][_materias[i]] es la nota de la materia en el bimestre indicado
     al final se divide el "promedio" por la cantidad de materias que hay y se devuelve el resultado*/
-    function promedio(uint8 bimestre_) public returns(uint){
+    function promedio(uint8 bimestre_) public view returns(uint){
         uint promedio_ = 0;
         for(uint8 i = 0; i < _materias.length;i++){
             promedio_ += _notas_materias[bimestre_][_materias[i]];
