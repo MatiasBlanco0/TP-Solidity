@@ -3,7 +3,7 @@
 ### Link de etherscan:
 Estudiante.sol: https://rinkeby.etherscan.io/tx/0x44e732dc2d84a87d9434024b53fee3b918c99d2c5ca315edf66070756c349362
 
-EstudianteAlt.sol: 
+EstudianteAlt.sol: https://rinkeby.etherscan.io/tx/0xdb631b797ca0d065a2993291ebf282ddcde4712f702fc4538a8c252d1e252ded
 
 ### Integrantes: 
 Matias B. e Ilan R.
