@@ -54,7 +54,7 @@ contract Estudiante{
     Se pushea la materia a un array de materias y se actualiza el valor de la nota con la key bimestre y materia
     Se hace emit al evento SetNota pasando msg.sender, materia_ y nota_*/
     function set_nota_materia(uint8 bimestre_, uint8 nota_, string memory materia_) public{
-        require(msg.sender == _docente && _permisos[msg.sender] == true, "Solo personas con permisos pueden modificar las notas");
+        require(msg.sender == _docente || _permisos[msg.sender] == true, "Solo personas con permisos pueden modificar las notas");
         require(nota_ <= 100 && nota_ >= 1, "La nota tiene que ser un numero entero del 1 al 100");
         require(bimestre_ <= 4 && bimestre_ >= 1, "El bimestre tiene que ser un numero");
 
